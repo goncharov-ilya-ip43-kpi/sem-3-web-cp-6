@@ -1,0 +1,12 @@
+{
+    "name": "ilya/kp6-backend",
+    "authors": [
+        {
+            "name": "IlyaGon4arov",
+            "email": "gon4ilya07@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-pdo_pgsql": "*"
+    }
+}

@@ -1,0 +1,302 @@
+/* 
+-------|
+GENERAL|
+-------|
+*/
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+body * {
+    margin: 0px;
+    padding: 0px;
+    overflow: auto;
+}
+
+a {
+    color: red;
+    text-decoration: none;
+}
+
+a:hover {
+    color: orange;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+.page {
+    display: grid;
+    grid-template: 15vh 70vh 15vh / 100%;
+}
+
+/*
+------|
+HEADER|
+------|
+*/
+
+.header-general {
+    display: grid;
+    grid-template: 36% / 60% 25%;
+    justify-content: center;
+    align-content: center;
+    background-color: blue;
+}
+
+.header__nav {
+    background-color: green;
+}
+
+.header__nav ul {
+    height: 100%;
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    justify-content: space-between;
+    place-items: center center;
+}
+
+.header__nav li {
+    font-size: 20px;
+}
+
+.header__info {
+    background-color: cadetblue;
+    display: grid;
+    grid-template: 1fr / 1fr;
+    justify-items: end;
+    align-items: center;
+}
+
+/*
+------|
+FOOTER|
+------|
+*/
+
+.footer-general {
+    display: grid;
+    grid-template: 70% / 52% 28%;
+    justify-content: center;
+    align-content: center;
+    background-color: blue;
+}
+
+.footer__legal {
+    background-color:violet;
+}
+
+.footer__info {
+    height: 50%;
+    align-self: center;
+    display: grid;
+    justify-content: end;
+    align-content: center;
+    background-color: darkgoldenrod;
+}
+
+/*
+-------|
+CONTENT|
+-------|
+*/
+
+.content {
+    display: grid;
+    grid-template: 10% 1fr 15% / 15% 1fr 15%;
+    grid-template-areas:
+        "left top right"
+        "left main right"
+        "bottom bottom right";
+}
+
+.content__leftbar {
+    grid-area: left;
+    background-color: yellow;
+    padding: 5px;
+}
+
+.content__topbar {
+    grid-area: top;
+    background-color: green;
+    align-content: center;
+}
+
+.content__topbar > * {
+    justify-self: center;
+}
+
+.content__rightbar {
+    grid-area: right;
+    background-color: yellow;
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+    align-content: center;
+    place-items: center center;
+}
+
+.profile__icon {
+    width: 5.5vw;
+    height: 5.5vw;
+    border-radius: 50%;
+    background-color:blueviolet;
+}
+
+.content__bottombar {
+    grid-area: bottom;
+    display: grid;
+    grid-auto-flow: column;
+    background-color: green;
+}
+
+.content__bottombar--advertising {
+    place-items: center center;
+    display: grid;
+    grid-template: 60% 1fr / 100%;
+}
+
+.advertising__picture {
+    height: 2vw;
+    width: 5.5vw;
+    border-radius: 10%;
+    background-color: blueviolet;
+}
+
+.content__main {
+    grid-area: main;
+    display: grid;
+}
+
+.main__article {
+    justify-self: center;
+    width: 88%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    background-color: lightblue;
+}
+
+.main__article > p {
+    font-size: 22px;
+    text-indent: 40px;
+}
+
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.image-item {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 16px;
+    line-height: 20px;
+    cursor: pointer;
+
+    display: none;
+}
+
+.image-wrapper:hover .image-button {
+    display: block;
+}
+
+/*
+------|
+MOBILE|
+------|
+*/
+
+@media (max-width: 768px) {
+    .page {
+        grid-template: auto 1fr auto / 100%;
+    }
+
+    .header-general {
+        grid-template: auto / 1fr;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .header__nav ul {
+        grid-auto-flow: row;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .header__info {
+        order: -1;
+    }
+
+    .content {
+        grid-template: auto 1fr auto auto auto / 100%;
+        grid-template-areas:
+            "top"
+            "main"
+            "left"
+            "right"
+            "bottom";
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .content__topbar, .content__leftbar, .content__rightbar, .content__bottombar {
+        padding: 1rem;
+    }
+
+    .content__bottombar {
+        grid-auto-flow: row;
+        gap: 1rem;
+    }
+
+    .content__bottombar--advertising {
+        grid-template: auto auto / auto 1fr;
+        gap: 0.5rem;
+        place-items: center start;
+    }
+
+    .advertising__picture {
+        width: 4rem;
+        height: 2rem;
+    }
+
+    .footer-general {
+        grid-template: auto / 1fr;
+        padding: 1rem;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .footer__legal {
+        padding: 1rem 0;
+    }
+
+    .footer__info {
+        order: -1;
+        height: auto;
+        align-self: stretch;
+        justify-content: center;
+        padding: 1rem 0;
+    }
+}
